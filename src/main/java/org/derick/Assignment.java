@@ -8,7 +8,6 @@ import lombok.ToString;
 import java.util.ArrayList;
 import java.util.Random;
 
-@ToString
 @EqualsAndHashCode
 public class Assignment {
     @Getter private String assignmentId;
@@ -36,5 +35,10 @@ public class Assignment {
             default -> -1;
         };
         scores.add(score);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Assignment Id: %s, Name: %s, Weight: %.2f", assignmentId, assignmentName, weight);
     }
 }
