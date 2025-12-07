@@ -6,14 +6,13 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Getter
-@Setter
 @ToString
 @EqualsAndHashCode
 public class Address {
-    private String street;
-    private String city;
-    private Province province;
-    String postalCode;
+    @Setter private String street;
+    @Setter private String city;
+    @Setter private Province province;
+    private String postalCode;
 
 
     static boolean isPostalCodeValid(String postalCode) {
@@ -36,6 +35,14 @@ public class Address {
         }
 
         return true;
+    }
+
+    public void setPostalCode(String postalCode) {
+        if (!isPostalCodeValid(postalCode)) {
+            System.out.println("Postal code is invalid");
+            return;
+        }
+        this.postalCode = postalCode;
     }
 
     public enum Province {
