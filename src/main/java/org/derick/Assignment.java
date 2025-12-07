@@ -23,9 +23,20 @@ public class Assignment {
         this.assignmentId = String.format("%06d", nextId++);
     }
 
+    void calculateAssignmentAvg() {
+        int sum = 0;
+        for (Integer num : scores) {
+            sum += num;
+        }
+        sum /= scores.size();
+
+        System.out.println("Average score: " + sum);
+    }
+
     void generateRandomScore() {
         Random rand = new Random();
         int num = rand.nextInt(0,11);
+
         Integer score = switch (num){
             case 0 -> rand.nextInt(0,60);
             case 1, 2 -> rand.nextInt(60,70);
@@ -34,6 +45,7 @@ public class Assignment {
             case 9, 10 -> rand.nextInt(90,100);
             default -> -1;
         };
+
         scores.add(score);
     }
 
