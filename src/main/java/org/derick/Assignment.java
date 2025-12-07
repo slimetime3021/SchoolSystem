@@ -1,12 +1,15 @@
 package org.derick;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-
+@ToString
+@EqualsAndHashCode
 public class Assignment {
     @Getter private String assignmentId;
     @Getter @Setter private String assignmentName;
