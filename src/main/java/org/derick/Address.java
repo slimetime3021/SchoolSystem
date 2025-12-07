@@ -7,7 +7,27 @@ public class Address {
     String postalCode;
 
 
+    static boolean isPostalCodeValid(String postalCode) {
+        if (postalCode == null || postalCode.length() != 6) {
+            return false;
+        }
 
+        postalCode = postalCode.toUpperCase();
+        for (int i = 0; i < postalCode.length(); i++) {
+            if (i % 2 == 0) {
+                if (!Character.isAlphabetic(postalCode.charAt(i))) {
+                    return false;
+                }
+            }
+            if (i % 2 == 1){
+                if (!Character.isDigit(postalCode.charAt(i))) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
 
     public enum Province {
         AB,
