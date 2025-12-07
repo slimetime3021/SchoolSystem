@@ -1,14 +1,18 @@
 package org.derick;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.Random;
 
+
 public class Assignment {
-    String assignmentId;
-    String assignmentName;
-    double weight;
-    ArrayList<Integer> scores;
-    static int nextId = 1;
+    @Getter private String assignmentId;
+    @Getter @Setter private String assignmentName;
+    @Getter @Setter private double weight;
+    @Getter @Setter private ArrayList<Integer> scores;
+    private static int nextId = 1;
 
     public Assignment(String assignmentName, double weight) {
         this.assignmentName = assignmentName;
