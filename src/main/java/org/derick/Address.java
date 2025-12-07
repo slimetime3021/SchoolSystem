@@ -9,15 +9,15 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 public class Address {
-    @Setter private String street;
-    @Setter private String city;
-    @Setter private Province province;
+    private String street;
+    private String city;
+    private Province province;
     private String postalCode;
 
     public Address(String street, String city, Province province, String postalCode) {
         if (isPostalCodeValid(postalCode)) {
-            this.street = street;
-            this.city = city;
+            this.street = Util.toTitleCase(street);
+            this.city = Util.toTitleCase(city);
             this.province = province;
             this.postalCode = postalCode;
         } else {
@@ -48,6 +48,14 @@ public class Address {
         }
 
         return true;
+    }
+
+    public void setStreet(String street) {
+        this.street = Util.toTitleCase(street);
+    }
+
+    public void setCity(String city) {
+        this.city = Util.toTitleCase(city);
     }
 
     public void setPostalCode(String postalCode) {
