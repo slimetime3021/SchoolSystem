@@ -23,14 +23,13 @@ public class Assignment {
         this.assignmentId = String.format("%06d", nextId++);
     }
 
-    void calculateAssignmentAvg() {
-        int sum = 0;
+    double calculateAssignmentAvg() {
+        double sum = 0;
         for (Integer num : scores) {
             sum += num;
         }
-        sum /= scores.size();
 
-        System.out.println("Average score: " + sum);
+        return sum / scores.size();
     }
 
     void generateRandomScore() {
