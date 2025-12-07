@@ -14,6 +14,19 @@ public class Address {
     @Setter private Province province;
     private String postalCode;
 
+    public Address(String street, String city, Province province, String postalCode) {
+        if (isPostalCodeValid(postalCode)) {
+            this.street = street;
+            this.city = city;
+            this.province = province;
+            this.postalCode = postalCode;
+        } else {
+            this.street = null;
+            this.city = null;
+            this.province = null;
+            this.postalCode = null;
+        }
+    }
 
     static boolean isPostalCodeValid(String postalCode) {
         if (postalCode == null || postalCode.length() != 6) {
@@ -38,11 +51,11 @@ public class Address {
     }
 
     public void setPostalCode(String postalCode) {
-        if (!isPostalCodeValid(postalCode)) {
+        if (isPostalCodeValid(postalCode)) {
+            this.postalCode = postalCode;
+        } else {
             System.out.println("Postal code is invalid");
-            return;
         }
-        this.postalCode = postalCode;
     }
 
     public enum Province {
