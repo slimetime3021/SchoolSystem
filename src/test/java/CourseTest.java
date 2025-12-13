@@ -98,6 +98,7 @@ public class CourseTest {
     }
 
     @Test
+    @DisplayName("Student1 Scores: {80, 70} both weight 50% of final grade, avg: (80*50 + 70*50)/100")
     void testCalcStudentsAverage() {
         Department dept = new Department("Computer Science");
         Course course = new Course("Maths", 12, dept, new ArrayList<>());
