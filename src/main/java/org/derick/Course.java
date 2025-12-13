@@ -123,4 +123,14 @@ public class Course {
 
         System.out.println(sb);
     }
+
+    public String toSimplifiedString() {
+        return String.format(
+                "%s | %s | %.2f credits | %s",
+                courseId,
+                courseName,
+                credits,
+                department != null ? department.getDepartmentName() : "N/A"
+        );
+    }
 }
