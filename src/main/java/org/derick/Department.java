@@ -4,12 +4,11 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
-@Getter
 @ToString
 @EqualsAndHashCode
 public class Department {
-    private String departmentId;
-    private String departmentName;
+    @Getter private String departmentId;
+    @Getter private String departmentName;
     private static int nextId = 1;
 
     public Department(String departmentName) {
