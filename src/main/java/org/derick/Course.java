@@ -77,4 +77,50 @@ public class Course {
             }
         }
     }
+
+    public void displayScores() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Course: ")
+                .append(courseName)
+                .append(" (")
+                .append(courseId)
+                .append(")\n");
+
+        // Header
+        sb.append(String.format("%-25s", ""));
+        for (Assignment assignment : assignments) {
+            sb.append(String.format("%-15s", assignment.getAssignmentName()));
+        }
+        sb.append(String.format("%-15s%n", "Final Score"));
+
+        // Student
+        int[] finalScores = calcStudentsAverage();
+
+        for (int i = 0; i < registeredStudents.size(); i++) {
+            Student student = registeredStudents.get(i);
+
+            sb.append(String.format("%-25s", student.getStudentName()));
+
+            for (Assignment assignment : assignments) {
+                Integer score = assignment.getScores().get(i);
+                sb.append(String.format("%-15s", score == null ? "N/A" : score));
+            }
+
+            sb.append(String.format("%-15d%n", finalScores[i]));
+        }
+
+        // Average
+        sb.append(String.format("%-25s", "Average"));
+        for (Assignment assignment : assignments) {
+            sb.append(
+                    String.format(
+                            "%-15d",
+                            (int) Math.round(assignment.calculateAssignmentAvg())
+                    )
+            );
+        }
+
+        System.out.println(sb);
+    }
 }
