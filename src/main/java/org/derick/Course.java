@@ -16,6 +16,15 @@ public class Course {
     @Getter @Setter private ArrayList<Student> registeredStudents;
     private static int nextId = 1;
 
+    public Course(String courseName, double credits, Department department,
+                  ArrayList<Assignment> assignments, ArrayList<Student> registeredStudents) {
+        this.courseName = courseName;
+        this.credits = credits;
+        this.department = department;
+        this.assignments = assignments;
+        this.registeredStudents = registeredStudents;
+    }
+
     public boolean isAssignmentWeightValid(){
         double sum = 0;
         for (Assignment assignment : assignments){
