@@ -34,4 +34,17 @@ public class Course {
         }
         return true;
     }
+
+    void removeStudent(Student student){
+        int index = registeredStudents.indexOf(student);
+
+        if (index < 0) {
+            return;
+        }
+
+        for (Assignment assignment : assignments){
+            assignment.getScores().remove(index);
+        }
+        registeredStudents.remove(student);
+    }
 }

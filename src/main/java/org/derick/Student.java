@@ -1,10 +1,12 @@
 package org.derick;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
 
+@EqualsAndHashCode
 public class Student {
     @Getter private String studentId;
     @Getter @Setter private String studentName;
@@ -20,6 +22,16 @@ public class Student {
         }
         registeredCourses.add(course);
         course.registerStudent(this);
+        return true;
+    }
+
+    boolean dropCourse(Course course) {
+        if (registeredCourses.contains(course)) {
+            registeredCourses.remove(course);
+            course.removeStudent(this);
+        } else {
+            return false;
+        }
         return true;
     }
 
