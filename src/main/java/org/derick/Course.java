@@ -23,4 +23,15 @@ public class Course {
         }
         return sum == 100.0;
     }
+
+    boolean registerStudent(Student student){
+        if (registeredStudents.contains(student)){
+            return false;
+        }
+        registeredStudents.add(student);
+        for (Assignment assignment : assignments){
+            assignment.generateRandomScore();
+        }
+        return true;
+    }
 }
