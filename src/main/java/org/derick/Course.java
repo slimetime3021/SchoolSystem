@@ -38,9 +38,6 @@ public class Course {
             return false;
         }
         registeredStudents.add(student);
-        for (Assignment assignment : assignments){
-            assignment.generateRandomScore();
-        }
         return true;
     }
 
@@ -52,6 +49,9 @@ public class Course {
         }
 
         for (Assignment assignment : assignments){
+            if (index >= assignment.getScores().size()){
+                continue;
+            }
             assignment.getScores().remove(index);
         }
         registeredStudents.remove(student);
@@ -66,5 +66,13 @@ public class Course {
             finalScores[i] /= 100;
         }
         return finalScores;
+    }
+
+    public void generateScores(){
+        for (int i = 0; i<registeredStudents.size(); i++){
+            for (Assignment assignment : assignments){
+                assignment.generateRandomScore();
+            }
+        }
     }
 }
