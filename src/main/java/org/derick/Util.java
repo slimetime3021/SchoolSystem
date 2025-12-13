@@ -5,6 +5,9 @@ import java.util.Arrays;
 public class Util {
 
     public static String toTitleCase(String str) {
+        if (str == null || str.isEmpty()) {
+            return str;
+        }
         String[] words = str.split(" ");
         StringBuilder stringBuilder = new StringBuilder();
 
