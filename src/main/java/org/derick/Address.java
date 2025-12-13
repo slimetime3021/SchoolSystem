@@ -28,7 +28,7 @@ public class Address {
         }
     }
 
-    static boolean isPostalCodeValid(String postalCode) {
+    public static boolean isPostalCodeValid(String postalCode) {
         if (postalCode == null || postalCode.length() != 6) {
             return false;
         }

@@ -16,7 +16,7 @@ public class Course {
     @Getter @Setter private ArrayList<Student> registeredStudents;
     private static int nextId = 1;
 
-    boolean isAssignmentWeightValid(){
+    public boolean isAssignmentWeightValid(){
         double sum = 0;
         for (Assignment assignment : assignments){
             sum += assignment.getWeight();
@@ -24,7 +24,7 @@ public class Course {
         return sum == 100.0;
     }
 
-    boolean registerStudent(Student student){
+    public boolean registerStudent(Student student){
         if (registeredStudents.contains(student)){
             return false;
         }
@@ -35,7 +35,7 @@ public class Course {
         return true;
     }
 
-    void removeStudent(Student student){
+    public void removeStudent(Student student){
         int index = registeredStudents.indexOf(student);
 
         if (index < 0) {

@@ -23,7 +23,7 @@ public class Assignment {
         this.assignmentId = String.format("%06d", nextId++);
     }
 
-    double calculateAssignmentAvg() {
+    public double calculateAssignmentAvg() {
         double sum = 0;
         for (Integer num : scores) {
             sum += num;
@@ -32,7 +32,7 @@ public class Assignment {
         return sum / scores.size();
     }
 
-    void generateRandomScore() {
+    public void generateRandomScore() {
         Random rand = new Random();
         int num = rand.nextInt(0,11);
 

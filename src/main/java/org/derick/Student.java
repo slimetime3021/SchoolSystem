@@ -16,7 +16,7 @@ public class Student {
     @Getter @Setter private ArrayList<Course> registeredCourses;
     private static int nextId = 1;
 
-    boolean registerCourse(Course course) {
+    public boolean registerCourse(Course course) {
         if (registeredCourses.contains(course)) {
             return false;
         }
@@ -25,7 +25,7 @@ public class Student {
         return true;
     }
 
-    boolean dropCourse(Course course) {
+    public boolean dropCourse(Course course) {
         if (registeredCourses.contains(course)) {
             registeredCourses.remove(course);
             course.removeStudent(this);
@@ -44,7 +44,7 @@ public class Student {
         );
     }
 
-    enum Gender {
+    public enum Gender {
         MALE, FEMALE
     }
 }

@@ -22,7 +22,7 @@ public class Department {
         }
     }
 
-    static boolean isDepartmentNameValid(String departmentName) {
+    public static boolean isDepartmentNameValid(String departmentName) {
         for (int i = 0; i < departmentName.length(); i++) {
             char c = departmentName.charAt(i);
             if (!Character.isAlphabetic(c) & !(c == ' ')){
