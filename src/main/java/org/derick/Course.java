@@ -71,6 +71,9 @@ public class Course {
     }
 
     public void generateScores(){
+        for (Assignment assignment : assignments){
+            assignment.getScores().clear();
+        }
         for (int i = 0; i<registeredStudents.size(); i++){
             for (Assignment assignment : assignments){
                 assignment.generateRandomScore();
