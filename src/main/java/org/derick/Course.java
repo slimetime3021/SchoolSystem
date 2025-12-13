@@ -8,13 +8,13 @@ import java.util.ArrayList;
 
 @EqualsAndHashCode
 public class Course {
-    @Getter String courseId;
-    @Getter @Setter String courseName;
-    @Getter @Setter double credits;
-    @Getter @Setter Department department;
-    @Getter @Setter ArrayList<Assignment> assignments;
-    @Getter @Setter ArrayList<Student> registeredStudents;
-    static int nextId = 1;
+    @Getter private String courseId;
+    @Getter @Setter private String courseName;
+    @Getter @Setter private double credits;
+    @Getter @Setter private Department department;
+    @Getter @Setter private ArrayList<Assignment> assignments;
+    @Getter @Setter private ArrayList<Student> registeredStudents;
+    private static int nextId = 1;
 
     boolean isAssignmentWeightValid(){
         double sum = 0;
