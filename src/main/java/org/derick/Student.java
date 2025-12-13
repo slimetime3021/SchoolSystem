@@ -35,6 +35,15 @@ public class Student {
         return true;
     }
 
+    public String toSimplifiedString() {
+        return String.format(
+                "%s | %s | %s",
+                studentId,
+                studentName,
+                department != null ? department.getDepartmentName() : "N/A"
+        );
+    }
+
     enum Gender {
         MALE, FEMALE
     }
