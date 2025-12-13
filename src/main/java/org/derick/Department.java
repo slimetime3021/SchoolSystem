@@ -32,4 +32,10 @@ public class Department {
         }
         return true;
     }
+
+    public void setDepartmentName(String departmentName) {
+        if (isDepartmentNameValid(departmentName)) {
+            this.departmentName = departmentName;
+        }
+    }
 }
