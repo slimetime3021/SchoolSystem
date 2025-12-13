@@ -3,7 +3,6 @@ package org.derick;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -24,6 +23,9 @@ public class Assignment {
     }
 
     public double calculateAssignmentAvg() {
+        if (scores.isEmpty()) {
+            return 0.0;
+        }
         double sum = 0;
         for (Integer num : scores) {
             sum += num;
