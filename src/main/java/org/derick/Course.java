@@ -133,4 +133,45 @@ public class Course {
                 department != null ? department.getDepartmentName() : "N/A"
         );
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Course ID: ").append(courseId).append("\n");
+        sb.append("Course Name: ").append(courseName).append("\n");
+        sb.append("Credits: ").append(credits).append("\n");
+        sb.append("Department: ")
+                .append(department != null ? department.getDepartmentName() : "N/A")
+                .append("\n");
+
+        // Assignments
+        sb.append("Assignments:\n");
+        if (assignments == null || assignments.isEmpty()) {
+            sb.append("  None\n");
+        } else {
+            for (Assignment assignment : assignments) {
+                sb.append("  ").append(assignment.toString()).append("\n");
+            }
+        }
+
+        // Registered students (simplified)
+        sb.append("Registered Students:\n");
+        if (registeredStudents == null || registeredStudents.isEmpty()) {
+            sb.append("  None\n");
+        } else {
+            for (Student student : registeredStudents) {
+                sb.append("  ")
+                        .append(student.toSimplifiedString())
+                        .append("\n");
+            }
+        }
+
+        // Assignment weight validity
+        sb.append("Assignment Weight Valid: ")
+                .append(isAssignmentWeightValid() ? "Yes" : "No")
+                .append("\n");
+
+        return sb.toString();
+    }
 }
