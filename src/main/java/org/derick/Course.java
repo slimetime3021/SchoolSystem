@@ -43,11 +43,11 @@ public class Course {
         return true;
     }
 
-    public void removeStudent(Student student){
+    public boolean removeStudent(Student student){
         int index = registeredStudents.indexOf(student);
 
         if (index < 0) {
-            return;
+            return false;
         }
 
         for (Assignment assignment : assignments){
@@ -57,6 +57,7 @@ public class Course {
             assignment.getScores().remove(index);
         }
         registeredStudents.remove(student);
+        return true;
     }
 
     public int[] calcStudentsAverage() {
@@ -68,6 +69,10 @@ public class Course {
             finalScores[i] /= 100;
         }
         return finalScores;
+    }
+
+    public void addAssignment(String assignmentName, double weight){
+        assignments.add(new Assignment(assignmentName, weight));
     }
 
     public void generateScores(){

@@ -25,7 +25,8 @@ public class StudentTest {
     }
 
     @Test
-    void testRegisterCourseDuplicate() {
+    @DisplayName("duplicate register")
+    void testRegisterCourse2() {
         Department dept = new Department("Computer Science");
 
         Course course = new Course("Math", 12, dept, new ArrayList<>());
@@ -40,7 +41,8 @@ public class StudentTest {
     }
 
     @Test
-    void testDropCourseSuccess() {
+    @DisplayName("Drop course normally")
+    void testDropCourse1() {
         Department dept = new Department("Computer Science");
 
         Course course = new Course("Math", 12, dept, new ArrayList<>());
@@ -55,7 +57,8 @@ public class StudentTest {
     }
 
     @Test
-    void testDropCourseNotRegistered() {
+    @DisplayName("Drop course that is not registered")
+    void testDropCourse2() {
         Department dept = new Department("Computer Science");
 
         Course course = new Course("Math", 12, dept, new ArrayList<>());
