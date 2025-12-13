@@ -56,4 +56,15 @@ public class Course {
         }
         registeredStudents.remove(student);
     }
+
+    public int[] calcStudentsAverage() {
+        int[] finalScores = new int[registeredStudents.size()];
+        for (int i = 0; i<registeredStudents.size(); i++){
+            for (Assignment assignment : assignments){
+                finalScores[i] += (int) Math.round(assignment.getScores().get(i)*assignment.getWeight());
+            }
+            finalScores[i] /= 100;
+        }
+        return finalScores;
+    }
 }
