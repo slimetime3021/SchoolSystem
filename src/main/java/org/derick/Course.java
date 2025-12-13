@@ -18,9 +18,11 @@ public class Course {
 
     public Course(String courseName, double credits, Department department,
                   ArrayList<Assignment> assignments, ArrayList<Student> registeredStudents) {
+
         this.courseName = courseName;
         this.credits = credits;
         this.department = department;
+        this.courseId = String.format("C-%s-%02d", department.getDepartmentId(), nextId++);
         this.assignments = assignments;
         this.registeredStudents = registeredStudents;
     }
