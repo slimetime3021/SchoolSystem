@@ -1,13 +1,26 @@
 package org.derick;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 
+@EqualsAndHashCode
 public class Course {
-    String courseId;
-    String courseName;
-    double credits;
-    Department department;
-    ArrayList<Assignment> assignments;
-    ArrayList<Student> registeredStudents;
+    @Getter String courseId;
+    @Getter @Setter String courseName;
+    @Getter @Setter double credits;
+    @Getter @Setter Department department;
+    @Getter @Setter ArrayList<Assignment> assignments;
+    @Getter @Setter ArrayList<Student> registeredStudents;
     static int nextId = 1;
+
+    boolean isAssignmentWeightValid(){
+        double sum = 0;
+        for (Assignment assignment : assignments){
+            sum += assignment.getWeight();
+        }
+        return sum == 100.0;
+    }
 }
