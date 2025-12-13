@@ -8,7 +8,7 @@ public class Student {
     Gender gender;
     Address address;
     Department department;
-    ArrayList<course> registeredCourses;
+    ArrayList<Course> registeredCourses;
     static int nextId = 1;
 
 
