@@ -17,12 +17,12 @@ public class Student {
     @Getter @Setter private ArrayList<Course> registeredCourses;
     private static int nextId = 1;
 
-    public Student(String studentName, Gender gender, Address address, Department department, ArrayList<Course> registeredCourses) {
+    public Student(String studentName, Gender gender, Address address, Department department) {
         this.studentName = studentName;
         this.gender = gender;
         this.address = address;
         this.department = department;
-        this.registeredCourses = registeredCourses;
+        this.registeredCourses = new  ArrayList<>();
     }
 
     public boolean registerCourse(Course course) {
