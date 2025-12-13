@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 @EqualsAndHashCode
@@ -37,11 +38,39 @@ public class Student {
 
     public String toSimplifiedString() {
         return String.format(
-                "%s | %s | %s",
+                "Id: %s | Name: %s | Department: %s",
                 studentId,
                 studentName,
                 department != null ? department.getDepartmentName() : "N/A"
         );
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Student ID: ").append(studentId).append("\n");
+        sb.append("Student Name: ").append(studentName).append("\n");
+        sb.append("Registered Courses:\n");
+
+        if (registeredCourses == null || registeredCourses.isEmpty()) {
+            sb.append("  None\n");
+        } else {
+            for (Course course : registeredCourses) {
+                sb.append("  ")
+                        .append(course.getCourseId())
+                        .append(" | ")
+                        .append(course.getCourseName())
+                        .append(" | ")
+                        .append(
+                                course.getDepartment() != null
+                                        ? course.getDepartment().getDepartmentName()
+                                        : "N/A"
+                        )
+                        .append("\n");
+            }
+        }
+
+        return sb.toString();
     }
 
     public enum Gender {
